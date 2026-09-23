@@ -5,21 +5,21 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'pytest'
+                bat 'pytest'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mkdir -p build'
-                sh 'cp app.py build/'
-                sh 'cp requirements.txt build/'
+                bat 'mkdir build'
+                bat 'copy app.py build\\'
+                bat 'copy requirements.txt build\\'
             }
         }
     }
